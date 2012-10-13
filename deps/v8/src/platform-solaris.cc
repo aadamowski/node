@@ -126,7 +126,7 @@ const char* OS::LocalTimezone(double time) {
 
 double OS::LocalTimeOffset() {
   tzset();
-  return -static_cast<double>(timezone * msPerSecond);
+  return -static_cast<double>((daylight ? altzone : timezone) * msPerSecond);
 }
 
 
